@@ -19,13 +19,54 @@
     </style>
   </head>
   <body>
+<script language="javascript">
+  function zmienJezykPL()
+  {
+    window.location.reload();
+  }
+  
+  function zmienJezykENG()
+  {
+    var lokalizacja01;
+    var lokalizacja02;
+
+    lokalizacja01 = document.getElementById("naglowek01");
+    lokalizacja02 = document.getElementById("naglowek02");
+    
+    //lokalizacja.style.color="green";
+  
+    lokalizacja01.textContent = "Login";
+    lokalizacja02.textContent = "Login into PUE";
+    
+  }
+  
+
+  function emerytura()
+  {
+    var userInput;
+    var liczbaWprowadzona;
+    var liczbaDoEmerytury;
+    
+    userInput = prompt('Podaj liczbę przepracowanych lat:');
+    liczbaWprowadzona = parseInt(userInput);
+    liczbaDoEmerytury = 47 - liczbaWprowadzona;
+   
+    //wypisanie wyniku w komunikacie
+    //alert("Do emerytury pozostało: " + liczbaDoEmerytury + " lat.");
+
+    //wypisanie wyniku na stronie
+    document.write("Do emerytury pozostało: " + liczbaDoEmerytury + " lat.");
+  }
+</script>
+
     <font style="font-family: 'Lato';">
     <table>
       <thead>
         <tr>
           <td><a href="htpps://www.zus.pl">
             <img src="logo.png" /></td>
-          <td><font style="font-family: 'Lato'; color: #009d41;"> ZAKŁAD<br>UBEZPIECZEŃ<br>SPOŁECZNYCH</td>
+          <td><font style="font-family: 'Lato'; color: #009d41;"> ZAKŁAD
+            <br>UBEZPIECZEŃ<br>SPOŁECZNYCH</td>
           </font>
             <td><img src="pue_logo.png" /></td>
           <td>
@@ -38,7 +79,13 @@
         </td>
           <td>Zarejestruj w PUE |</td>
           <td>Zaloguj do PUE |</td>
-          <td><font style='font-family:"Times Neew Roman";'>MOBA</font></td>
+          <td>
+            <!--<button onclick="zmienJezyk();">ENG</button>-->
+            <select>
+              <option onclick="zmienJezykPL()">PL</option>
+              <option onclick="zmienJezykENG()">ENG</option>
+            </select>
+          </td>
           <td>| aA</td>
           <td>| <font style='font-family:"Webdings";'>N</font></td>
         </tr>
@@ -46,18 +93,20 @@
     </table>
 
     <hr>
-    <h1>Logowanie</h1>
+    <h1 id="naglowek01">Logowanie</h1>
     <p align="center">
     <table class="tg"; align="center">
         <thead>
           <tr>
             <td class="tg-0pky"></td>
-            <td class="tg-sqyb"><font style="color: white;"><h2>Zaloguj się do PUE</h2>
+            <td class="tg-sqyb"><font style="color: white;"><h2 id="naglowek02">Zaloguj się do PUE</h2>
             Login &nbsp;<input type="text">
             <br><br>
             Hasło &nbsp;<input type="text">
             <br><br>
         <input type="Submit" value="Zaloguj >">
+        <br><br>
+        <button onclick="emerytura();">Sprawdź liczbę lat do emerytury</button>
     </td>
             <td class="tg-f4ef"><img src="a.png" /></td>
             <td class="tg-0pky"></td>
